@@ -29,7 +29,7 @@ export const updateBlog = async (
   }
 };
 
-export const getLangChainResponse = async (
+export const getAIMessageResponse = async (
   messageData: ChatMessage
 ): Promise<ChatMessage | null> => {
   try {
@@ -43,7 +43,43 @@ export const getLangChainResponse = async (
     const data = response.data;
     return data;
   } catch (error: any) {
-    console.error("Get LangChain AI response error: ", error);
+    console.error("Get AI response error: ", error);
     return null;
+  }
+};
+
+export const generateTravelJson =
+  async (): Promise<CreateOrUpdatePostResponse | null> => {
+    try {
+      const response = await axios.post(
+        "http://localhost:8082/ai/messages/room123/generate"
+      );
+      const data = response.data;
+      return data;
+    } catch (error: any) {
+      console.error("Generate travel json error: ", error);
+      return null;
+    }
+  };
+
+export const createRoom = async (roomTitle: string) => {
+  try {
+    const response = await axios.post("http://localhost:8082/rooms/", {
+      roomTitle: roomTitle,
+    });
+    const data = response.data;
+    return data && data.roomId;
+  } catch (error: any) {
+    console.error("Create room API error: ", error);
+  }
+};
+
+export const getRoom = async (roomId: string) => {
+  try {
+    const response = await axios.get(`http://localhost:8082/rooms/${roomId}`);
+    const data = response.data;
+    return data;
+  } catch (error: any) {
+    console.error("Get room API error: ", error);
   }
 };

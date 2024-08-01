@@ -14,12 +14,16 @@ import LinkTool from "@editorjs/link";
 import Checklist from "@editorjs/checklist";
 import Warning from "@editorjs/warning";
 import ImageTool from "@editorjs/image";
-import { Header1, Header2, Header3 } from "../shared/editor/CustomHeaderConfig";
+import {
+  Header1,
+  Header2,
+  Header3,
+} from "../../shared/editor/CustomHeaderConfig";
 
-import axios from "../shared/api/axios";
+import axios from "../../shared/api/axios";
 
 // styles
-import "../styles/editor.css";
+import "../../styles/editor.css";
 
 function Editor({
   onSave,
@@ -108,7 +112,7 @@ function Editor({
     }
 
     return () => {
-      if (editorRef.current) {
+      if (editorRef && editorRef.current) {
         editorRef.current.destroy();
         editorRef.current = null;
       }

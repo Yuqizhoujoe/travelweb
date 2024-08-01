@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import axios from "../shared/api/axios";
+import axios from "../../shared/api/axios";
 
 // types
-import { Post } from "../shared/type/post";
+import { Post } from "../../shared/type/post";
 import BlogEditor from "./BlogEditor";
 
 function BlogView() {

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 // Components
-import Editor from "../components/Editor";
+import Editor from "./Editor";
 // types
 import { OutputData } from "@editorjs/editorjs";
-import { CreateOrUpdatePostResponse, Post } from "../shared/type/post";
+import { CreateOrUpdatePostResponse, Post } from "../../shared/type/post";
 
-import { createNewBlog, updateBlog } from "../shared/api/api";
+import { createNewBlog, updateBlog } from "../../shared/api/api";
 import { useNavigate } from "react-router-dom";
 
 export default function BlogEditor({
