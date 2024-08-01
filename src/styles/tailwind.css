@@ -1,0 +1,52 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom dark mode styles (optional) */
+.dark .bg-dark {
+  background-color: #1a202c; /* Example dark background color */
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-md text-white;
+  }
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-dark;
+  }
+  .btn-secondary {
+    @apply bg-secondary hover:bg-secondary-dark;
+  }
+  .btn-accent {
+    @apply bg-accent hover:bg-accent-dark;
+  }
+}
+
+@layer utilities {
+  .img-rounded {
+    @apply rounded-lg;
+  }
+
+  .link {
+    @apply text-primary hover:text-primary-dark underline;
+  }
+
+  .input {
+    @apply px-4 py-2 border rounded-md;
+  }
+  .input-primary {
+    @apply border-primary focus:border-primary-dark focus:ring focus:ring-primary;
+  }
+  .input-secondary {
+    @apply border-secondary focus:border-secondary-dark focus:ring focus:ring-secondary;
+  }
+  .input-accent {
+    @apply border-accent focus:border-accent-dark focus:ring focus:ring-accent;
+  }
+
+  /* Custom dark mode background color */
+  .dark .bg-dark {
+    background-color: #1a202c; /* Example dark background color */
+  }
+}

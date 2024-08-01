@@ -1,0 +1,16 @@
+/* src/styles/editor.css */
+
+/* Placeholder for empty blocks */
+.ce-block__content {
+  max-width: 800px;
+}
+
+.ce-block__content:empty::before {
+  content: "Write something or press / for command";
+  color: #999999;
+}
+
+/* Move the toolbar content to the left */
+.ce-toolbar__content {
+  max-width: 800px;
+}
