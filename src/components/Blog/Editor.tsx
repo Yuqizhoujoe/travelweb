@@ -28,9 +28,11 @@ import "../../styles/editor.css";
 function Editor({
   onSave,
   data,
+  roomId,
 }: {
   onSave: (data: OutputData) => Promise<void>;
   data?: OutputData;
+  roomId?: string;
 }) {
   const editorRef = useRef<EditorJS | null>(null);
 
@@ -126,9 +128,14 @@ function Editor({
 
   return (
     <div className="flex flex-col">
-      <div className="w-100 flex justify-end">
+      <div className="w-100 flex justify-end gap-2">
+        {roomId && (
+          <button className="btn btn-primary mt-4 cursor-pointer">
+            Back to Room
+          </button>
+        )}
         <button
-          className="btn btn-primary mt-4 cursor-pointer"
+          className="btn btn-secondary mt-4 cursor-pointer"
           onClick={saveEditorData}
         >
           Save Data

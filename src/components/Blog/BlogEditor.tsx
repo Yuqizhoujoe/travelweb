@@ -108,7 +108,11 @@ export default function BlogEditor({
         onChange={(e) => setTitle(e.target.value)}
       />
       <div className="editor-container w-10/12 rounded-lg p-4">
-        <Editor onSave={handleOnSave} data={data?.editorJsData} />
+        <Editor
+          onSave={handleOnSave}
+          data={data?.editorJsData}
+          roomId={data?.roomId}
+        />
       </div>
     </div>
   );

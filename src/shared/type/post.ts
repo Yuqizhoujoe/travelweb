@@ -5,6 +5,7 @@ export type Post = {
   postTitle: string;
   editorJsData: OutputData;
   timestamp?: string;
+  roomId?: string;
 };
 
 export type CreateOrUpdatePostResponse = {
