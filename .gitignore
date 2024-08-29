@@ -26,3 +26,7 @@ yarn-error.log*
 .vscode/
 
 data/
+/.idea/.gitignore
+/.idea/modules.xml
+/.idea/travelweb.iml
+/.idea/vcs.xml

@@ -24,6 +24,7 @@ import axios from "../../shared/api/axios";
 
 // styles
 import "../../styles/editor.css";
+import { useNavigate } from "react-router-dom";
 
 function Editor({
   onSave,
@@ -35,6 +36,7 @@ function Editor({
   roomId?: string;
 }) {
   const editorRef = useRef<EditorJS | null>(null);
+  const navigate = useNavigate();
 
   const [gcsLink, setGcsLink] = useState<string | null>(null);
 
@@ -126,11 +128,18 @@ function Editor({
     if (savedData) onSave(savedData);
   };
 
+  const handleBackToAIChat = () => {
+    navigate(`/rooms/${roomId}`);
+  };
+
   return (
     <div className="flex flex-col">
       <div className="w-100 flex justify-end gap-2">
         {roomId && (
-          <button className="btn btn-primary mt-4 cursor-pointer">
+          <button
+            className="btn btn-primary mt-4 cursor-pointer"
+            onClick={handleBackToAIChat}
+          >
             Back to Room
           </button>
         )}

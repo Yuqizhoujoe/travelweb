@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import axios from "../../shared/api/axios";
+import { GetBlogByPostId } from "../../shared/api/blog";
 
 // types
 import { Post } from "../../shared/type/post";
@@ -12,17 +12,17 @@ function BlogView() {
   const [blogData, setBlogData] = useState<Post>();
 
   useEffect(() => {
-    const fetchBlogById = async () => {
+    const fetchBlogById = async (postId: string) => {
       try {
-        const response = await axios.get(`/travel/posts/${postId}`);
-        setBlogData(response.data);
+        const data = await GetBlogByPostId(postId);
+        setBlogData(data);
       } catch (error: any) {
         console.error("FETCH BLOG DATA ERROR: ", error);
       }
     };
 
     if (postId) {
-      fetchBlogById();
+      fetchBlogById(postId);
     }
   }, [postId]);
 
